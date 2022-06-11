@@ -29,8 +29,14 @@
         <p>
             <strong>Site of the day</strong>
             <span>Previous Winners</span>
+            {% if user.is_authenticated %}
+            <span>Hello {{request.user}}</span>
+            <span>
+                <a href="{% url 'logout' %}" >Logout</a>
+            </span>
 
         </p>
+        {% endif %}
 
            {% for response in response %}
             <div class="col-md-3">
