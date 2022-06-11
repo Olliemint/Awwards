@@ -20,3 +20,14 @@ def home(request):
     }    
     
     return render(request, 'awwards/home.html',context)
+
+
+
+def Login(request):
+    
+    return render(request, 'awwards/login.html')
+
+
+def Logout(request):
+    
+    return render(request, 'awwards/logout.html')
