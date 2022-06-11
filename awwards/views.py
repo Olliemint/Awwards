@@ -1,6 +1,14 @@
 from django.shortcuts import render
+from rest_framework import viewsets
+from .serializers import ProjectSerializer
+from .models import Projectdata
 
 # Create your views here.
+class ProjectView(viewsets.ModelViewSet):
+    queryset = Projectdata.objects.all()
+    serializer_class = ProjectSerializer
+
+
 
 def home(request):
     
