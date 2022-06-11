@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from .serializers import ProjectSerializer
 from .models import Projectdata
+import requests
 
 # Create your views here.
 class ProjectView(viewsets.ModelViewSet):
@@ -11,5 +12,9 @@ class ProjectView(viewsets.ModelViewSet):
 
 
 def home(request):
+    response_json = requests.get('http://127.0.0.1:8000/api/project/') 
+    if (response_json.status_code == 200):  
+        response = response_json.json() 
+        print(response)
     
     return render(request, 'awwards/home.html')
