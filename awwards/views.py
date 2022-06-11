@@ -15,6 +15,8 @@ def home(request):
     response_json = requests.get('http://127.0.0.1:8000/api/project/') 
     if (response_json.status_code == 200):  
         response = response_json.json() 
-        print(response)
+    context = {
+        'response': response
+    }    
     
-    return render(request, 'awwards/home.html')
+    return render(request, 'awwards/home.html',context)

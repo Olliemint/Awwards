@@ -1,6 +1,62 @@
 {% extends 'awwards/base.html' %}
 
 {% block content %}
-<h1>Base extension works</h1>
+<!-- <div class="container-fluid">
+    <div class="col-md-12">
+    <div class="row">
+        {% for response in response %}
+       
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{{response.project_image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{response.name}}</h5>
+                  <p class="card-text">{{response.location}}</p>
+                  <a href="#" class="btn btn-primary">by {{response.posted_by}}</a>
+                </div>
+              </div>
+        </div>
+    </div>
+        {% endfor %}
+    </div>
+</div> -->
+
+
+<div class="container-fluid mt-5">
+
+    <div class="col-md-12">
+        <div class="row px-5">
+           {% for response in response %}
+            <div class="col-md-3">
+                <div class="card">
+                  
+                
+                    <img src="{{ response.project_image }}" class="card-img-top" alt="..." style="width: 100%;">
+
+                    <div class="card-body">
+                      <h5 class="card-title">{{response.name}}</h5>
+                      <p class="card-text">From {{response.location}}</p>
+                      <p>{{response.posted_date}}</p>
+                      <p class="card-text">BY <strong>{{response.posted_by}}</strong></p>
+
+                    </div>
+              
+
+
+
+                  
+            </div>
+                  
+                  </div>
+                  {% empty %}
+                  <h3>no photos...</h3>
+                  {% endfor %}
+                
+            </div>
+           
+          
+            
+        </div>
+</div>
 
 {% endblock %}
