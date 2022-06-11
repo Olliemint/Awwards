@@ -9,3 +9,6 @@ class Projectdata(models.Model):
     posted_by = models.CharField(max_length=200, blank=False)
     location = models.CharField(max_length=200, blank=False)
     project_link = models.URLField(max_length=500, blank=True)
+    
+    def __str__(self):
+        return self.name
