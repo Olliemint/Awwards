@@ -1,0 +1,54 @@
+{% extends 'awwards/base.html' %}
+
+{% block content %}
+
+
+<div class="col-md-3 mt-4 d-flex justify-content-center">
+    <div class="card">
+      
+    
+        <img src="{{ project.project_image.url }}" class="card-img-top" alt="..." style="width: 100%;">
+
+        <div class="card-body">
+          <h5 class="card-title">{{project.name}}</h5>
+          <p class="card-text">From {{project.location}}</p>
+          <p>{{project.posted_date}}</p>
+          <p class="card-text">BY <strong>{{project.posted_by}}</strong></p>
+
+        </div>
+  
+
+
+
+      
+</div>
+      
+      </div>
+
+      <form method="post" action="">
+        {% csrf_token %}
+        <label for="">Design:</label>
+       <div>
+          {{ form.design }}
+      </div>
+      <br>
+      <label for="">Usability:</label>
+      <div>
+         {{ form.usability }}
+     </div>
+     <br>
+     <label for="">Content:</label>
+     <div>
+        {{ form.content }}
+    </div>
+    <br>
+      <label for="textarea1">Opinion</label>
+
+      <div class="form-floating" style="height: 100px; width: 200px;">
+          {{ form.review }}
+      </div>
+      <button class="btn btn-success btn-sm" type="submit">Submit</button>
+    </form>
+
+
+{% endblock %}

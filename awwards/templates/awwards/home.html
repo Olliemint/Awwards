@@ -39,7 +39,7 @@
         {% endif %}
 
            {% for response in response %}
-            <div class="col-md-3">
+            <div class="col-md-3 mt-4 ">
                 <div class="card">
                   
                 
@@ -50,6 +50,7 @@
                       <p class="card-text">From {{response.location}}</p>
                       <p>{{response.posted_date}}</p>
                       <p class="card-text">BY <strong>{{response.posted_by}}</strong></p>
+                      <a href="{% url 'review' response.id %}">Review</a>
 
                     </div>
               

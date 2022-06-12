@@ -1,5 +1,8 @@
 from django.contrib.auth import authenticate,login,logout
-from .forms import RegisterUserForm
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+
+from .forms import RegisterUserForm,ReviewForm
 from django.contrib import messages
 
 
@@ -16,7 +19,7 @@ class ProjectView(viewsets.ModelViewSet):
     serializer_class = ProjectSerializer
 
 
-
+# home view
 def home(request):
     response_json = requests.get('http://127.0.0.1:8000/api/project/') 
     if (response_json.status_code == 200):  
@@ -27,6 +30,13 @@ def home(request):
     
     return render(request, 'awwards/home.html',context)
 
+
+def post(request):
+    
+    return render(request, 'logout.html',)
+
+
+# user registration view
 
 def Register(request):
     
@@ -50,7 +60,7 @@ def Register(request):
     return render(request, 'awwards/register.html',context)
 
 
-
+# login view
 def Login(request):
     if request.method == 'POST':
         
@@ -67,9 +77,40 @@ def Login(request):
     
     return render(request, 'awwards/login.html')
 
-
+# logout view
 def Logout(request):
     
     logout(request)
     
     return redirect('home')
+
+
+# review view
+def ReviewView(request,id):
+    
+    form = ReviewForm()
+    
+    project = Projectdata.objects.get(id=id)
+    user  = request.user
+    
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.user = user
+            data.project = project
+            data.save()
+            
+           
+            return HttpResponse('Thank you for your feedback')
+    
+    context = {
+        'project':project,
+        'form':form,
+    }
+    
+    
+    
+    return render(request, 'awwards/review.html',context)
+
+
