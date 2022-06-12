@@ -2,12 +2,14 @@
 
 {% block content %}
 
+<div class="row  mt-4 px-5">
 
-<div class="col-md-3 mt-4 d-flex justify-content-center">
+
+<div class="col-8">
     <div class="card">
       
     
-        <img src="{{ project.project_image.url }}" class="card-img-top" alt="..." style="width: 100%;">
+        <img class="imgdetails" src="{{ project.project_image.url }}" class="card-img-top" alt="...">
 
         <div class="card-body">
           <h5 class="card-title">{{project.name}}</h5>
@@ -24,31 +26,41 @@
 </div>
       
       </div>
+      <div class="col-md-4">
+          <div class="review">
+            <h2 class="px-5">Rate Project</h2>
+            <form class="px-5 py-2" method="post" action="">
+                {% csrf_token %}
+                <label for=""><strong>Design:</strong></label>
+               <div>
+                  {{ form.design }}
+              </div>
+              <br>
+              <label for=""><strong>Usability:</strong></label>
+              <div>
+                 {{ form.usability }}
+             </div>
+             <br>
+             <label for=""><strong>Content:</strong></label>
+             <div>
+                {{ form.content }}
+            </div>
+            <br>
+              <label for="textarea1"><strong>Review</strong></label>
+        
+              <div class="form-floating" style="height: 100px; width: 200px;">
+                  {{ form.review }}
+              </div>
+              <button class="btn btn-success btn-sm" type="submit">Submit</button>
+            </form>
 
-      <form method="post" action="">
-        {% csrf_token %}
-        <label for="">Design:</label>
-       <div>
-          {{ form.design }}
+          </div>
+         
+
       </div>
-      <br>
-      <label for="">Usability:</label>
-      <div>
-         {{ form.usability }}
-     </div>
-     <br>
-     <label for="">Content:</label>
-     <div>
-        {{ form.content }}
     </div>
-    <br>
-      <label for="textarea1">Opinion</label>
 
-      <div class="form-floating" style="height: 100px; width: 200px;">
-          {{ form.review }}
-      </div>
-      <button class="btn btn-success btn-sm" type="submit">Submit</button>
-    </form>
+    
 
 
 {% endblock %}

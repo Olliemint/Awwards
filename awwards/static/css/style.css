@@ -1,0 +1,15 @@
+.imgdetails{
+    width: 70rem;
+    height: 70vh;
+}
+.body{
+    background-color: aqua;
+}
+
+.review{
+    width: 20em;
+    border-radius: 21px;
+    background: #f5f5f5;
+    box-shadow:  8px 8px 15px #626262,
+                 -8px -8px 15px #ffffff;
+}
