@@ -22,8 +22,9 @@
 
                     </div>
                     <div class="px-4">
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <form class="d-flex" action="{% url 'home' %}" method="post">
+                        {% csrf_token %}
+                            <input class="form-control me-2" name="search" id="search" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                           </form>
                     </div>
@@ -49,13 +50,15 @@
             <div class="login-profile d-flex">
                 {% if user.is_authenticated %}
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown button
+                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        
+                        <span class="avatar" style="margin-top: 1rem;">{{user.username| upper}}</span>
+                      <img class="profimag" src="{{user.profile.image.url}}" alt="" srcset="">
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="{% url 'logout' %}">logout</a></li>
+                      <li><a class="dropdown-item" href="#">Profile</a></li>
+                      <li><a class="dropdown-item" href="#">Notifications</a></li>
+                      <li><a class="dropdown-item" href="{% url 'logout' %}">Logout <span class="iconify" data-icon="fe:logout" data-width="20" data-height="20"></span></a></li>
                     </ul>
                   </div>
                   {% else %}

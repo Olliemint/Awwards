@@ -2,7 +2,42 @@
 
 {% block content %}
 
-<h1>You can submit now</h1>
+<div class="sumbitsite">
+
+    <div class="card" style="width: 30rem;height: 30rem;background-color: #F4F7F6;">
+        <h3 class="h3 text-center">Project Details</h3>
+        <div class="myform d-flex justify-content-center">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="pname mt-1">
+                    <label class="label" for="">Project name:</label><br>
+                    <input class="form-control me-2" type="text" name="projectname" id="projectname" placeholder="Name..">
+    
+                </div>
+                <div class="loca mt-3">
+                    <label class="label" for="">Author location:</label><br>
+                    <input class="form-control me-2" type="text" name="location" id="location" placeholder="location..">
+                </div>
+                <div class="plink mt-3">
+                    <label class="label" for="">Project link:</label><br>
+                    <input class="form-control me-2" type="url" name="plink" id="plink" placeholder="project link..">
+                </div>
+                <div class="pimage mt-3">
+                    <label class="label" for="">Project image:</label><br>
+                    <input class="form-control me-2" type="file" name="upload" id="upload" placeholder="" required>
+                </div>
+                <br>
+                <div class="btn1 d-flex justify-content-center">
+                <button class="btn btn-success" type="submit">Submit</button>
+
+                </div>
+                
+            </form>
+        </div>
+
+    </div>
+
+</div>
 
 
 {% endblock %}

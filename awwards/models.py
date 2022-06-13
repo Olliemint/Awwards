@@ -5,11 +5,20 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class Projectdata(models.Model):
+class Profile(models.Model):
+    user=models.OneToOneField(User, on_delete=models.CASCADE)
+    bio=models.CharField(max_length=200, blank=True, null=True)
+    country=models.CharField(max_length=200, blank=True, null=True)
+    image=models.ImageField(default='user7.jpg',upload_to='projectpics')
+    def __str__(self):
+        return f'{self.user.username} Profile'
     
+    
+
+class Projectdata(models.Model):
+    author =models.ForeignKey(User, on_delete=models.CASCADE,blank=True,null=True)
     name = models.CharField(max_length=200, blank=False)
     posted_date = models.DateTimeField(auto_now_add=True)
-    posted_by = models.CharField(max_length=200, blank=False)
     location = models.CharField(max_length=200, blank=False)
     project_link = models.URLField(max_length=500, blank=False)
     project_image = models.ImageField(default='project.jpg',upload_to='projectpics')

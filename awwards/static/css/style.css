@@ -23,12 +23,12 @@
                  -8px -8px 15px #ffffff;
 }
 .navbarsection{
-    height: 8vh;
+    height: 6vh;
     align-items: center;
     
 }
 .submit button{
-    height: 8vh;
+    height: 6vh;
     
 
     
@@ -49,11 +49,21 @@
 
 #login{
     background-image: url('https://raw.githubusercontent.com/Olliemint/Awwards/main/awwards/static/image/login.jpg');
-    height: 90vh;
+    height: 91vh;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-content: center;
+}
+.sumbitsite{
+    background-image: url('https://raw.githubusercontent.com/Olliemint/Awwards/main/awwards/static/image/login.jpg');
+    height: 91vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
 }
 .div a{
     text-decoration: none;
@@ -66,6 +76,35 @@
 .imgp{
     height: 20vh;
 }
+
+.profimag{
+    height: 37px;
+    width: 37px;
+    border-radius: 50%;
+    margin-top: 9px;
+}
+.login-profile span{
+    margin-top: 2rem !important;
+}
+.myform input{
+    background-color: #F9F9F9;
+    height: 4vh;
+    border-radius: 10px 10px 10px 10px;
+}
+.label{
+    color: #000;
+    
+    font-size: 20px;
+}
+.h3{
+    color: #000;
+    font-weight: 900;
+}
+.myform input::placeholder{
+    font-style: italic;
+    color: #63C6B6;
+}
+
 
 @media (max-width: 400px){
     .navbarsection{

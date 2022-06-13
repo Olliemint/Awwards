@@ -19,38 +19,34 @@
 
 <div class="container-fluid mt-5">
 
+    
+
     <div class="col-md-12">
         <div class="row px-5">
         <p>
             <strong>Site of the day</strong>
             <span>Previous Winners</span>
-            {% if user.is_authenticated %}
-            <span>Hello {{request.user}}</span>
-            <span>
-                <a href="{% url 'logout' %}" >Logout</a>
-            </span>
+           
 
-        </p>
-        {% endif %}
-
-           {% for response in response %}
+           {% for project in projects %}
             <div class="col-md-3 mt-4 ">
                 <div class="card">
                   
                 
-                    <a href="{{response.project_link}}">
-                    <img class="imgp" src="{{ response.project_image }}" class="card-img-top" alt="..." style="width: 100%;">
+                    <a href="{{project.project_link}}">
+                    <img class="imgp" src="{{ project.project_image.url }}" class="card-img-top" alt="..." style="width: 100%;">
 
                     </a>
 
 
                     <div class="card-body" id="card2">
-                      <h5 class="card-title">{{response.name}}</h5>
-                      <p class="card-text">From {{response.location}}</p>
-                      <p>{{response.posted_date}}</p>
-                      <p class="card-text">BY <strong>{{response.posted_by}}</strong></p>
-                      <a href="{{response.project_link}}">view</a>
-                      <a href="{% url 'review' response.id %}">Review</a>
+                      <h5 class="card-title">{{project.name}}</h5>
+                      <p class="card-text">From {{project.location}}</p>
+                      <p>{{project.posted_date |date}}</p>
+                      <p class="card-text">BY <strong>{{project.author}}</strong></p>
+                      <a href="{{project.project_link}}">view</a>
+                      <a href="{% url 'review' project.id %}">Review</a>
+                      <p>{{project.reviews}}</p>
 
                     </div>
               
