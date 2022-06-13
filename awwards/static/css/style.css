@@ -46,3 +46,38 @@
     height: 60vh;
     color: #ffffff;
 }
+
+#login{
+    background-image: url('https://raw.githubusercontent.com/Olliemint/Awwards/main/awwards/static/image/login.jpg');
+    height: 90vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.div a{
+    text-decoration: none;
+    color: #63C6B6;
+    font-weight: 700;
+}
+#card2{
+    background-color: #F9F9F9;
+}
+.imgp{
+    height: 20vh;
+}
+
+@media (max-width: 400px){
+    .navbarsection{
+        flex-direction: column;
+        
+        
+      
+  }
+  .herocon{
+      margin-top: 10rem;
+  }
+  .submit{
+      margin-top: 2rem;
+  }
+}

@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 
+
 from .forms import RegisterUserForm,ReviewForm
 from django.contrib import messages
 
@@ -14,6 +15,7 @@ import requests
 
 
 # Create your views here.
+
 class ProjectView(viewsets.ModelViewSet):
     queryset = Projectdata.objects.all()
     serializer_class = ProjectSerializer
@@ -86,6 +88,7 @@ def Logout(request):
 
 
 # review view
+@login_required(login_url='login')
 def ReviewView(request,id):
     
     form = ReviewForm()
@@ -112,5 +115,14 @@ def ReviewView(request,id):
     
     
     return render(request, 'awwards/review.html',context)
+
+
+
+@login_required(login_url='login')
+
+def Submit_site(request):
+    
+    
+    return render(request, 'awwards/submit_site.html')
 
 

@@ -8,5 +8,7 @@ urlpatterns = [
     path('login/',views.Login,name='login'),
     path('logout/',views.Logout,name='logout'),
     path('review/<str:id>/',views.ReviewView, name='review'),
+    path('submit/',views.Submit_site,name='submit'),
+    
     
 ]

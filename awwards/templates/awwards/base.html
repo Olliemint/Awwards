@@ -47,19 +47,38 @@
                 </a>
             </div>
             <div class="login-profile d-flex">
+                {% if user.is_authenticated %}
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown button
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li><a class="dropdown-item" href="{% url 'logout' %}">logout</a></li>
+                    </ul>
+                  </div>
+                  {% else %}
+
+
                 <div class="reg">
                     <p>
                         ARE YOU A MEMBER?
-                        <a href="" style="text-decoration: none;font-weight: 500;color: #000">
+                        <a href="{% url 'login' %}" style="text-decoration: none;font-weight: 500;color: #000">
                             <strong>REGISTER/LOGIN</strong>
                         </a>
                     </p>
                 </div>
+                {% endif %}
                 <div class="submit px-3">
-                    <button class="btn btn-dark" type="submit">
-                    <a href="">SUBMIT YOUR SITE!</a>
+                    
+                    <a href="{% url 'submit'%}">
+                        <button class="btn btn-dark" type="submit">
+                            SUBMIT YOUR SITE!
+                        </button>
+                    </a>
 
-                    </button>
+                    
                 </div>
             </div>
         </div>
