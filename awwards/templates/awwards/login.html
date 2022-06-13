@@ -11,7 +11,7 @@
 			width: 350px;
 			margin-top: auto;
 			margin-bottom: auto;
-			background: #74cfbf;
+			background: #F4F7F6;
 			position: relative;
 			display: flex;
 			justify-content: center;
@@ -29,13 +29,14 @@
 		}
 
 		#form-title{
-			color: #fff;
+			color: #63C6B6;
+			font-weight: 700;
 			
 		}
 
 		.login_btn {
 			width: 100%;
-			background: #33ccff !important;
+			background: #63C6B6 !important;
 			color: white !important;
 		}
 		.login_btn:focus {
@@ -46,7 +47,7 @@
 			padding: 0 2rem;
 		}
 		.input-group-text {
-			background: #f7ba5b !important;
+			background: #63C6B6 !important;
 			color: white !important;
 			border: 0 !important;
 			border-radius: 0.25rem 0 0 0.25rem !important;
@@ -58,7 +59,7 @@
 		}
 
 		#messages{
-			background-color: grey;
+			background-color: green;
 			color: #fff;
 			padding: 10px;
 			margin-top: 10px;
@@ -79,7 +80,7 @@
                         {% csrf_token %}
 						<div class="input-group mb-3">
 							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
+								<span class="input-group-text" ><i class="fas fa-user"></i></span>
 							</div>
 							<input type="text" name="username" placeholder="Username..." class="form-control">
 						</div>

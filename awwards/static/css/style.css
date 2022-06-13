@@ -13,9 +13,7 @@
     width: 70rem;
     height: 70vh;
 }
-.body{
-    background-color: aqua;
-}
+
 
 .review{
     width: 20em;
@@ -43,7 +41,7 @@
     margin-top: 28px;
 }
 .herocon{
-    background-image: url("https://raw.githubusercontent.com/Olliemint/Awwards/main/media/projectpics/cobo.jpg");
+    background-image: url("https://raw.githubusercontent.com/Olliemint/Awwards/main/media/projectpics/trend.jpg");
     background-size: cover;
     height: 60vh;
     color: #ffffff;
