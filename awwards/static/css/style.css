@@ -24,3 +24,21 @@
     box-shadow:  8px 8px 15px #626262,
                  -8px -8px 15px #ffffff;
 }
+.navbarsection{
+    height: 8vh;
+    align-items: center;
+    
+}
+.submit button{
+    height: 8vh;
+    
+
+    
+}
+.submit a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.reg{
+    margin-top: 28px;
+}
