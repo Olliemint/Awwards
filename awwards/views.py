@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 
 
-from .forms import RegisterUserForm,ReviewForm,UpdateprofileForm,UpdateUserForm
+from .forms import RegisterUserForm,ReviewForm,UserForm,ProfileForm
 from django.contrib import messages
 
 
@@ -166,21 +166,25 @@ def Submit_site(request):
 @login_required(login_url='login')
 def Profile(request):
     if request.method == 'POST':
-        updateuser= UpdateUserForm(request.POST, instance=request.user)
-        updateprofile = UpdateprofileForm(request.POST, instance=request.user.profile)
+        u_form = UserForm(request.POST, instance=request.user)
+        p_form = ProfileForm(request.POST,request.FILES, instance=request.user.profile)
         
-        if updateuser.is_valid() and updateprofile.is_valid():
-            updateuser.save()
-            updateprofile.save()
-        
-    else: 
-        updateuser= UpdateUserForm(request.POST, instance=request.user)
-        updateprofile = UpdateprofileForm(request.POST, instance=request.user.profile)   
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Account updated!')
+            return redirect('profile')
+
+    else:
+        u_form = UserForm(instance=request.user)
+        p_form = ProfileForm(instance=request.user.profile)
+        # current_profile = Profile.objects.get(user_id = request.user)
+        # current_post = Post.user_post(request.user) 
     
     data = Projectdata.objects.filter(author=request.user)
     context = {
-        'updateuser': updateuser,
-       'updateprofile': updateprofile,
+       'u_form': u_form,
+       'p_form': p_form,
        'data': data,
         
     }

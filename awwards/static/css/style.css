@@ -104,6 +104,11 @@
     font-style: italic;
     color: #63C6B6;
 }
+.primag{
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+}
 
 
 @media (max-width: 400px){

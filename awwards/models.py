@@ -14,6 +14,11 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
     
     
+    def save(self, **kwargs):
+        super().save( **kwargs)
+        img= Profile.open(self. profilepics.path)
+    
+    
 
 class Projectdata(models.Model):
     author =models.ForeignKey(User, on_delete=models.CASCADE,blank=True,null=True)
