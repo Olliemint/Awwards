@@ -7,7 +7,7 @@
 
 ### Screenshot of the App
 
-<img src="[https://raw.githubusercontent.com/Olliemint/Insta-clone/main/igclone/static/images/landing.png](https://raw.githubusercontent.com/Olliemint/Awwards/main/media/awwwardslanding.png)">
+<img src="https://raw.githubusercontent.com/Olliemint/Awwards/main/media/awwwardslanding.png">
 
 ## Table of Content
 
