@@ -1,6 +1,7 @@
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 
 # Create your models here.
@@ -14,7 +15,7 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
     
     
-    def save(self, **kwargs):
+    def save_profile(self, **kwargs):
         super().save( **kwargs)
         img= Profile.open(self. profilepics.path)
     
@@ -33,6 +34,25 @@ class Projectdata(models.Model):
     
     def __str__(self):
         return self.name
+    
+   
+
+    def delete_project(self):
+        self.delete()
+
+    @classmethod
+    def search_projects(cls, search_term):
+        found_data = cls.objects.filter(Q(name__icontains=search_term) | Q(author__username__icontains=search_term))
+        return found_data
+    @classmethod
+    def posts(cls):
+        return cls.objects.all()
+
+    def save_project(self):
+        self.save()
+    
+    
+    
     
 RATE_CHOICES =[
     (1, '1- Very Dissatisfied'),

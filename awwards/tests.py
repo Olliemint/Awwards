@@ -5,41 +5,39 @@ from django.contrib.auth.models import User
 # Create your tests here.
 
 class TestProfile(TestCase):
-    '''
-    Profile model tests
-    '''
+    
     def setUp(self):
-        self.user = User(id=1, username='mercy', password='pre123456')
-        self.user.save()
+        self.user = User(username='Olliemint',bio='test bio', country='Kenya',image='profile.jpg')
+        self.user.save_profile()
 
     def test_instance(self):
         self.assertTrue(isinstance(self.user, User))
 
     def test_save_user(self):
-        self.user.save()
+        self.user.save_profile()
 
-class Testpost(TestCase):
+class TestProject(TestCase):
     def setUp(self):
-        self.post = Projectdata(title='Delani Studion', image='test.jpg', author= User.objects.create(username='mercy'), description='a clone for delani studio', livelink='http://google.com/?search=this+is+amazing')
-        self.user = User(id=1, username='mercy', password='pre123456')
+        self.project = Projectdata(author= User.objects.create(username='Olliemint'),name='Akan Names', image='test.jpg',  description='a clone for delani studio', livelink='http://google.com/?search=this+is+amazing')
+        self.user = User(username='Olliemint', password='@test.password')
 
     def test_instance(self):
-        self.assertTrue(isinstance(self.post, Projectdata))
+        self.assertTrue(isinstance(self.project, Projectdata))
 
     def test_save(self):
-        self.post.save()
-        post = Projectdata.objects.all()
-        self.assertTrue(len(post) > 0)
+        self.project.save()
+        project = Projectdata.objects.all()
+        self.assertTrue(len(project) > 0)
 
-    def test_get_posts(self):
-        self.post.save()
-        posts = Projectdata.all_posts()
+    def test_get_project(self):
+        self.project.save()
+        posts = Projectdata.posts()
         self.assertTrue(len(posts) > 0)
 
     def test_search_post(self):
-        self.post.save()
-        post = Projectdata.search_projects('test')
-        self.assertFalse(len(post) > 0)
+        self.project.save()
+        project = Projectdata.search_projects('test')
+        self.assertFalse(len(project) > 0)
 
 class TestRate(TestCase):
     def setUp(self):
