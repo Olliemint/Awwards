@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from .permissions import IsAdminOrReadOnly
 
 
 
@@ -10,18 +11,28 @@ from django.contrib import messages
 from rest_framework.renderers import JSONRenderer
 from django.shortcuts import render,redirect
 from rest_framework import viewsets
-from .serializers import ProjectSerializer
-from .models import Projectdata,Review
+from .serializers import ProjectSerializer,ProfileSerializer,UserSerializer
+from .models import Projectdata,Profile
 from django.db.models import Q
 import requests
-from django.db.models import Avg
 
+from django.contrib.auth.models import User
 
 # Create your views here.
 
 class ProjectView(viewsets.ModelViewSet):
     queryset = Projectdata.objects.all()
     serializer_class = ProjectSerializer
+    
+class ProfileView(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer 
+    
+    
+class UserView(viewsets.ModelViewSet):
+    permission_classes = (IsAdminOrReadOnly,)
+    queryset = User.objects.all()
+    serializer_class = UserSerializer       
 
 
 # home view

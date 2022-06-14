@@ -6,10 +6,14 @@ from django.contrib import admin
 from django.urls import path,include
 
 from rest_framework import routers
-from awwards.views import ProjectView
+from awwards.views import ProjectView,ProfileView,UserView
 
-router = routers.DefaultRouter()
+router = routers.SimpleRouter()
 router.register('project',ProjectView)
+router.register('profile',ProfileView)
+router.register('user',UserView)
+
+
 
 urlpatterns = [
     path('api/',include(router.urls)),
