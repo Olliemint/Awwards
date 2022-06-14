@@ -33,20 +33,28 @@
                 <div class="card">
                   
                 
-                    <a href="{{project.project_link}}">
+                   
                     <img class="imgp" src="{{ project.project_image.url }}" class="card-img-top" alt="..." style="width: 100%;">
+                    
 
-                    </a>
+                    
 
 
                     <div class="card-body" id="card2">
                       <h5 class="card-title">{{project.name}}</h5>
                       <p class="card-text">From {{project.location}}</p>
-                      <p>{{project.posted_date |date}}</p>
-                      <p class="card-text">BY <strong>{{project.author}}</strong></p>
-                      <a href="{{project.project_link}}">view</a>
-                      <a href="{% url 'review' project.id %}">Review</a>
-                      <p>{{project.reviews}}</p>
+                      <div class="dday">
+                      <p class="d-flex justify-content-end">{{project.posted_date |date}}</p>
+
+                      </div>
+                      <div class="by d-flex">
+                          <img class="author" src="{{project.author.profile.image.url}}" alt="" srcset="">
+                          <div class="byname px-2 mt-1">
+                              <a href="{% url 'profile' %}">
+                                 BY <strong>{{project.author}}</strong>
+                              </a>
+                          </div>
+                      </div>
 
                     </div>
               

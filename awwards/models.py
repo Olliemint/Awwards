@@ -81,4 +81,13 @@ class Review(models.Model):
 
     def __str__(self):
         return self.review
-      
+    
+    
+    
+    def save_review(self):
+        self.save()
+
+    @classmethod
+    def get_review(cls, id):
+        ratings = cls.objects.filter(post_id=id).all()
+        return ratings

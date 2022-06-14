@@ -74,7 +74,7 @@
     background-color: #F9F9F9;
 }
 .imgp{
-    height: 20vh;
+    height: 30vh;
 }
 
 .profimag{
@@ -109,7 +109,20 @@
     width: 120px;
     border-radius: 50%;
 }
+.dday{
+    margin-top: -40px;
+}
 
+.author{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+
+}
+.byname a{
+    text-decoration: none;
+    color: #000;
+}
 
 @media (max-width: 400px){
     .navbarsection{

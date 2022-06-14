@@ -10,6 +10,8 @@ urlpatterns = [
     path('review/<str:id>/',views.ReviewView, name='review'),
     path('submit/',views.Submit_site,name='submit'),
     path('profile/',views.Profile,name='profile'),
+    path('search/',views.Search_projects,name='search'),
+    
     
     
     

@@ -1,0 +1,54 @@
+{% extends 'awwards/base.html' %}
+
+{% block content %}
+
+<div class="container my-5">
+    <a class="btn btn-dark btn-lg" href="{% url 'home' %}">
+        <span class="iconify" data-icon="akar-icons:arrow-back-thick" style="color: white;" data-width="25" data-height="25"></span>
+        
+    </a>
+        
+    <div class="row d-flex justify-content-center">
+        <h1 class="text-center">Search Results</h1>
+        <hr>
+     
+        <div class="col-md-9">
+             <div class="row">
+                 {% for search in search %}
+                 <div class="col-md-4 mt-4">
+                     <div class="card m-1" id="card">
+                         <img src="{{  search.project_image.url }}" class="card-img-top" alt="..." style="width: 100%;">
+                         <div class="card-body">
+                            <div class="card-body" id="card2">
+                                <h5 class="card-title">{{search.name}}</h5>
+                                <p class="card-text">From {{search.location}}</p>
+                                <div class="dday">
+                                <p class="d-flex justify-content-end">{{search.posted_date |date}}</p>
+          
+                                </div>
+                                <div class="by d-flex">
+                                    <img class="author" src="{{search.author.profile.image.url}}" alt="" srcset="">
+                                    <div class="byname px-2 mt-1">
+                                        <a href="{% url 'profile' %}">
+                                           BY <strong>{{search.author}}</strong>
+                                        </a>
+                                    </div>
+                                </div>
+          
+                              </div>
+                             
+                         </div>
+                       </div>
+                 </div>
+                 {% empty %}
+                 <h3>You have not posted projects yet...</h3>
+                 {% endfor %}
+               
+                 
+             </div>
+        </div>
+    </div> 
+ </div>
+
+
+{% endblock %}

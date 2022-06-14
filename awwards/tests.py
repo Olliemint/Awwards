@@ -7,15 +7,15 @@ class TestReview(TestCase):
     def setUp(self):
         self.project = Projectdata(author= User.objects.create(username='Olliemint'),name='Akan Names',  location='Nairobi', project_link='http://akanify.herokuapp.com', project_image='test.jpg',)
         self.user = User( username='Olliemint', password='@test.password')
-        self.rating = Review.objects.create(design=6, usability=7, content=9, user=self.user)
+        self.review = Review.objects.create(design=6, usability=7, content=9, user=self.user)
     
     def test_instance(self):
-        self.assertTrue(isinstance(self.rating, Review))
+        self.assertTrue(isinstance(self.review, Review))
 
     def test_save_rating(self):
-        self.rating.save_rating()
-        rating = Review.objects.all()
-        self.assertTrue(len(rating) > 0)
+        self.review.save_review()
+        review = Review.objects.all()
+        self.assertTrue(len(review) > 0)
 
 
 
@@ -24,7 +24,7 @@ class TestReview(TestCase):
 class TestProfile(TestCase):
     
     def setUp(self):
-        self.user = User(username='Olliemint',bio='test bio', country='Kenya',image='profile.jpg')
+        self.user = User(username='Olliemint',bio='test bio', country='Kenya',profile_image='profile.jpg')
         self.user.save_profile()
 
     def test_instance(self):

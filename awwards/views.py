@@ -7,7 +7,7 @@ from django.http import HttpResponse
 from .forms import RegisterUserForm,ReviewForm,UserForm,ProfileForm
 from django.contrib import messages
 
-
+from rest_framework.renderers import JSONRenderer
 from django.shortcuts import render,redirect
 from rest_framework import viewsets
 from .serializers import ProjectSerializer
@@ -117,6 +117,8 @@ def ReviewView(request,id):
     project = Projectdata.objects.get(id=id)
     user  = request.user
     reviews = Review.objects.get(project_id=id)
+   
+    
     
     if request.method == 'POST':
         form = ReviewForm(request.POST)
@@ -144,6 +146,9 @@ def ReviewView(request,id):
 @login_required(login_url='login')
 
 def Submit_site(request):
+    
+  
+        
     
     if request.method == 'POST':
         
@@ -190,3 +195,16 @@ def Profile(request):
     }
     
     return render(request, 'awwards/profile.html',context)
+
+
+
+def Search_projects(req):
+    
+    if req.method=='GET':
+        search_site = req.GET.get("search")
+        if search_site:
+            search=Projectdata.objects.filter(Q(name__icontains=search_site)|Q(author__username__icontains=search_site))
+            return render(req, 'awwards/search.html', {'search':search})
+    
+    
+
