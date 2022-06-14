@@ -56,7 +56,7 @@
                       <img class="profimag" src="{{user.profile.image.url}}" alt="" srcset="">
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                      <li><a class="dropdown-item" href="#">Profile</a></li>
+                      <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
                       <li><a class="dropdown-item" href="#">Notifications</a></li>
                       <li><a class="dropdown-item" href="{% url 'logout' %}">Logout <span class="iconify" data-icon="fe:logout" data-width="20" data-height="20"></span></a></li>
                     </ul>

@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 
 
-from .forms import RegisterUserForm,ReviewForm
+from .forms import RegisterUserForm,ReviewForm,UpdateprofileForm,UpdateUserForm
 from django.contrib import messages
 
 
@@ -163,3 +163,26 @@ def Submit_site(request):
     return render(request, 'awwards/submit_site.html')
 
 
+@login_required(login_url='login')
+def Profile(request):
+    if request.method == 'POST':
+        updateuser= UpdateUserForm(request.POST, instance=request.user)
+        updateprofile = UpdateprofileForm(request.POST, instance=request.user.profile)
+        
+        if updateuser.is_valid() and updateprofile.is_valid():
+            updateuser.save()
+            updateprofile.save()
+        
+    else: 
+        updateuser= UpdateUserForm(request.POST, instance=request.user)
+        updateprofile = UpdateprofileForm(request.POST, instance=request.user.profile)   
+    
+    data = Projectdata.objects.filter(author=request.user)
+    context = {
+        'updateuser': updateuser,
+       'updateprofile': updateprofile,
+       'data': data,
+        
+    }
+    
+    return render(request, 'awwards/profile.html',context)
