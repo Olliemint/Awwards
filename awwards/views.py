@@ -116,7 +116,7 @@ def ReviewView(request,id):
     
     project = Projectdata.objects.get(id=id)
     user  = request.user
-    reviews = Review.objects.get(project_id=id)
+    #reviews = Review.objects.get(project_id=id)
    
     
     
@@ -128,13 +128,14 @@ def ReviewView(request,id):
             data.project = project
             data.save()
             
+            
            
             return HttpResponse('Thank you for your feedback')
     
     context = {
         'project':project,
         'form':form,
-        'reviews':reviews,
+       
     }
     
     

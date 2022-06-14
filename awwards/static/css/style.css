@@ -124,6 +124,54 @@
     color: #000;
 }
 
+.design{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 2px solid #F73D93;
+}
+.design2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 2px solid #FFD24C;
+}
+.design3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 2px solid #F32424;
+}
+
+.pan{
+    font-size: 25px;
+    font-weight: 700;
+}
+.pa{
+    font-size: 18px;
+}
+
+.leftq{
+    margin-left: -2rem;
+}
+
+#top{
+    margin-top: -3rem;
+}
+#vote{
+    margin-top: -40px;
+    
+}
+
 @media (max-width: 400px){
     .navbarsection{
         flex-direction: column;

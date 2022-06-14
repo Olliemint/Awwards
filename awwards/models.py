@@ -29,7 +29,7 @@ class Projectdata(models.Model):
     project_link = models.URLField(max_length=500, blank=False)
     project_image = models.ImageField(default='project.jpg',upload_to='projectpics')
     reviews = models.ManyToManyField(
-    'Review', related_name='user_project', blank=True)
+    'Review', related_name='user_projects', blank=True)
     
     
     def __str__(self):
@@ -71,7 +71,8 @@ RATE_CHOICES =[
 class Review(models.Model):
     
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    project = models.ForeignKey(Projectdata, on_delete=models.CASCADE) 
+    project= models.ForeignKey(
+       Projectdata , blank=False, on_delete=models.CASCADE, null=False)
     review = models.CharField(max_length=2000, blank=True)
     design = models.PositiveSmallIntegerField(default=0, choices=RATE_CHOICES)
     usability = models.PositiveSmallIntegerField(default=0, choices=RATE_CHOICES)

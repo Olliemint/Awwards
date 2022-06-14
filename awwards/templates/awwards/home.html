@@ -2,6 +2,8 @@
 
 {% block content %}
 <div class="herocon">
+
+
     <div class="container-fluid px-5 py-5">
         <div class="d-flex">
             <p class="fw-bold">Site of the Day, </p>
@@ -9,12 +11,43 @@
         </div>
         
     </div>
-<div class="px-4 py-5 text-center">
-   
-    <h1 class="display-5 fw-bold">Marble</h1>
+    <div class="px-4 py-5 text-center" id="top">
+        
+        <h1 class="display-5 fw-bold">Marble</h1>
+        <div class="leftq">
+            <div class="col-lg-6 mx-auto">
+                <div class="d-flex justify-content-center">
+                    <div>
+                    <div class="design m-2">
+                        <span class="fw-bold pan">7</span><small class="pa">.4</small>
+                    </div>
+                    <p>Design</p>
     
+                    </div>
+                    <div>
+                        <div class="design2 m-2">
+                            <span class="fw-bold pan">9</span><small class="pa">.4</small>
+                        </div>
+                        <p>Usability</p>
+        
+                        </div>
+                        <div>
+                            <div class="design3 m-2">
+                                <span class="fw-bold pan">8</span><small class="pa">.27</small>
+                            </div>
+                            <p>Content</p>
+            
+                            </div>
+                </div>
+                
+             
+            </div>
+            
+        </div>
+        
+      </div>
     
-  </div>
+
 </div>
 
 <div class="container-fluid mt-5">
@@ -42,6 +75,12 @@
 
                     <div class="card-body" id="card2">
                       <h5 class="card-title">{{project.name}}</h5>
+                      <div class="d-flex justify-content-end" id="vote">
+                          <a class="btn btn-success btn-sm" href="{% url 'review' project.id %}">
+                            <span class="iconify" data-icon="clarity:star-line" data-width="25" data-height="25"></span>
+                            Rate
+                          </a>
+                      </div>
                       <p class="card-text">From {{project.location}}</p>
                       <div class="dday">
                       <p class="d-flex justify-content-end">{{project.posted_date |date}}</p>
