@@ -21,19 +21,20 @@ import requests
 
 from django.contrib.auth.models import User
 
-# Create your views here.
+
+# APIs endpoinnts
 @renderer_classes([JSONRenderer])
 class ProjectView(viewsets.ModelViewSet):
     queryset = Projectdata.objects.all()
     serializer_class = ProjectSerializer
     
     
-    
+@renderer_classes([JSONRenderer])    
 class ProfileView(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer 
     
-    
+@renderer_classes([JSONRenderer])    
 class UserView(viewsets.ModelViewSet):
     permission_classes = (IsAdminOrReadOnly,)
     queryset = User.objects.all()
