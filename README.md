@@ -67,7 +67,7 @@ $ python3 -m venv virtual ( or your selected virtual enviroment name )
 - Type the following command in your terminal to clone this repository
 
 ```
-git clone https://github.com/Olliemint/Insta-clone.git
+git clone https://github.com/Olliemint/Awwards.git
 
 ```
 
