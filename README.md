@@ -5,6 +5,13 @@
 
 ### By: Oliver Maiyo
 
+## APIs Endpoints
+[Projects](https://netawwards.herokuapp.com/api/project/) 
+[Users](https://netawwards.herokuapp.com/api/user/) 
+[Profiles](https://netawwards.herokuapp.com/api/profile/) 
+
+
+
 ### Screenshot of the App
 
 <img src="https://raw.githubusercontent.com/Olliemint/Awwards/main/media/awwwardslanding.png">
