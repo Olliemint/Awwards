@@ -6,9 +6,9 @@
 ### By: Oliver Maiyo
 
 ## APIs Endpoints
-[Projects](https://netawwards.herokuapp.com/api/project/) 
-[Users](https://netawwards.herokuapp.com/api/user/) 
-[Profiles](https://netawwards.herokuapp.com/api/profile/) 
+[Projects](https://netawwards.herokuapp.com/api/project/)<br>
+[Users](https://netawwards.herokuapp.com/api/user/)<br> 
+[Profiles](https://netawwards.herokuapp.com/api/profile/)<br> 
 
 
 
