@@ -19,7 +19,7 @@
 - [Authors Info](#author-info)
 
 ## Description
-
+This an website that shows users site, allow users to create account and submit their sites , it also allow users to review and rate other users site
 
 ## User Stories
 
