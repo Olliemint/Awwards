@@ -9,6 +9,9 @@ from .forms import RegisterUserForm,ReviewForm,UserForm,ProfileForm
 from django.contrib import messages
 
 from rest_framework.renderers import JSONRenderer
+from rest_framework.decorators import renderer_classes
+
+
 from django.shortcuts import render,redirect
 from rest_framework import viewsets
 from .serializers import ProjectSerializer,ProfileSerializer,UserSerializer
@@ -19,10 +22,12 @@ import requests
 from django.contrib.auth.models import User
 
 # Create your views here.
-
+@renderer_classes([JSONRenderer])
 class ProjectView(viewsets.ModelViewSet):
     queryset = Projectdata.objects.all()
     serializer_class = ProjectSerializer
+    
+    
     
 class ProfileView(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
